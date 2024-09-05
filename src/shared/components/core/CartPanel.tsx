@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom";
 export function CartPanel() {
   const navigate = useNavigate();
   const closeCartPanel = useCartPanel((state) => state.closeOverlay);
-
+  // NEW
   const list = useCart(selectCartList);
   const totalCartCost = useCart(selectTotalCartCost);
 
@@ -19,16 +19,16 @@ export function CartPanel() {
   }
 
   return (
-    <div className="fixed bg-slate-800 rounded-xl shadow-2xl right-4 top-24 p-3 w-96">
-      <ul className="flex flex-col gap-4">
+    <div className='fixed bg-slate-800 right-4 top-24 p-3 rounded-xl shadow-2xl w-96'>
+      <ul className='flex flex-col gap-4'>
         {list.map((p) => {
           return (
             <li
               key={p.product.id}
-              className="justify-between border-b border-slate-600 pb-3"
+              className='flex justify-between items-center border-b border-slate-600 pb-3'
             >
               <div>{p.product.name}</div>
-              <div className="flex gap-3">
+              <div className='flex gap-3'>
                 <div>
                   ({p.qty} x € {p.product.cost})
                 </div>
@@ -39,13 +39,14 @@ export function CartPanel() {
         })}
       </ul>
 
-      <div className="flex justify-end text-xl font-bold my-3">
-        total: € {totalCartCost}
+      {/*NEW*/}
+      <div className='flex justify-end text-xl font-bold my-3'>
+        Total: € {totalCartCost}
       </div>
 
-      <div className="flex justify-center">
-        <button className="btn primary" onClick={gotoCart}>
-          Go To Cart
+      <div className='flex justify-center'>
+        <button className='btn primary' onClick={gotoCart}>
+          Go to Cart
         </button>
       </div>
     </div>
