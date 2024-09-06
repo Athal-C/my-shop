@@ -39,7 +39,7 @@ input[type="text"].error,
 input[type="password"].error,
 input[type="number"].error,
 input[type="email"].error {
-  @apply bg-red-300;
+  @apply bg-red-600;
 }
 
 /*buttons*/
