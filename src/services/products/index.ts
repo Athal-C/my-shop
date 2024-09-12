@@ -1,0 +1,1 @@
+export { useProductService } from "./useProductsService";
