@@ -39,7 +39,7 @@ input[type="text"].error,
 input[type="password"].error,
 input[type="number"].error,
 input[type="email"].error {
-  @apply bg-red-600;
+  @apply bg-red-400;
 }
 
 /*buttons*/
@@ -52,11 +52,11 @@ input[type="email"].error {
 }
 
 .btn.danger {
-  @apply bg-red-600 hover:bg-red-500 text-white;
+  @apply bg-red-500 hover:bg-red-400 text-white;
 }
 
 .btn.primary {
-  @apply bg-white hover:bg-sky-200 text-black;
+  @apply border border-white bg-white hover:bg-gray-200 text-black;
 }
 
 .btn.accent {

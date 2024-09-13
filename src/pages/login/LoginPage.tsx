@@ -30,7 +30,7 @@ export function LoginPage() {
 
       {error && <ServerError />}
 
-      <form className="flex flex-col gap-3" onSubmit={doLogin}>
+      <form className="flex flex-col gap-4" onSubmit={doLogin}>
         <input
           type="text"
           name="username"

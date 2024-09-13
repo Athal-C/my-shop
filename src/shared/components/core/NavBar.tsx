@@ -58,15 +58,15 @@ export function NavBar() {
         <IfLogged
           else={
             <NavLink to="login" className="btn primary lg">
-              login
+              Login
             </NavLink>
           }
         >
           <NavLink to="cms" className="btn accent lg">
-            cms
+            CMS
           </NavLink>
           <button onClick={logoutHandler} className="btn danger lg">
-            logout
+            Logout
           </button>
         </IfLogged>
       </div>

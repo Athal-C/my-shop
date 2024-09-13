@@ -1,31 +1,34 @@
+import { useEffect } from "react";
 import { useProductService } from "@/services/products";
+import { ServerError, Spinner } from "@/shared/index";
+import { CMSProductList } from "./components/CMSProductslist";
+import { CMSProductForm } from "./components/CMSProductForm";
 
 export function CMSProductsPage() {
   const { state, actions } = useProductService();
 
-  async function getProductsHandler() {
+  useEffect(() => {
     actions.getProducts();
-  }
+  }, []);
 
   return (
     <div>
-      <h1 className='title'>CMS</h1>
-      <p className='flex font-bold text-xl justify-center text-center p-3'>
-        Pagina Prodotti
-      </p>
-      <hr className='my-8' />
+      <h1 className="title">CMS</h1>
 
-      {state.pending && <div>loading...</div>}
-      {state.error && (
-        <div className='flex font-bold text-2xl justify-center text-center p-3'>
-          An error has occurred
-        </div>
-      )}
+      {state.pending && <Spinner />}
+      {state.error && <ServerError message={state.error} />}
 
-      <button className='btn primary' onClick={getProductsHandler}>
-        GET
-      </button>
-      <pre>{JSON.stringify(state, null, 2)}</pre>
+      <CMSProductForm
+        activeItem={state.activeItem}
+        onClose={actions.resetActiveItem}
+      />
+
+      <CMSProductList
+        items={state.products}
+        activeItem={state.activeItem}
+        onEditItem={actions.setActiveItem}
+        onDeleteItem={actions.deleteProduct}
+      />
     </div>
   );
 }
