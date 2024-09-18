@@ -25,30 +25,32 @@ export function LoginPage() {
   }
 
   return (
-    <div className="page-sm">
-      <h1 className="title">LOGIN</h1>
+    <div className='page-sm'>
+      <h1 className='title'>LOGIN</h1>
 
       {error && <ServerError />}
 
-      <form className="flex flex-col gap-4" onSubmit={doLogin}>
+      <form className='flex flex-col gap-4' onSubmit={doLogin}>
         <input
-          type="text"
-          name="username"
-          placeholder="username"
+          type='text'
+          name='username'
+          placeholder='username'
           value={formData.username}
           onChange={changeHandler}
+          className='px-3 py-2'
         />
         <input
-          type="password"
-          name="password"
-          placeholder="password"
+          type='password'
+          name='password'
+          placeholder='password'
           value={formData.password}
           onChange={changeHandler}
+          className='px-3 py-2'
         />
         <button
           disabled={!isValid}
           className={`btn ${isValid ? "success" : "danger"}`}
-          type="submit"
+          type='submit'
         >
           SIGN IN
         </button>

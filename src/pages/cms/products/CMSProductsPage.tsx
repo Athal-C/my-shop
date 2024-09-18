@@ -13,7 +13,7 @@ export function CMSProductsPage() {
 
   return (
     <div>
-      <h1 className="title">CMS</h1>
+      <h1 className='title'>CMS</h1>
 
       {state.pending && <Spinner />}
       {state.error && <ServerError message={state.error} />}
@@ -21,6 +21,8 @@ export function CMSProductsPage() {
       <CMSProductForm
         activeItem={state.activeItem}
         onClose={actions.resetActiveItem}
+        onAdd={actions.addProduct}
+        onEdit={actions.editProduct}
       />
 
       <CMSProductList
@@ -29,6 +31,10 @@ export function CMSProductsPage() {
         onEditItem={actions.setActiveItem}
         onDeleteItem={actions.deleteProduct}
       />
+
+      <button onClick={() => actions.setActiveItem({})} className='btn primary'>
+        ADD NEW
+      </button>
     </div>
   );
 }
